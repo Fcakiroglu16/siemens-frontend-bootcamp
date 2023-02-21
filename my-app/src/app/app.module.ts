@@ -11,6 +11,8 @@ import { ExampleComponent } from './components/example/example.component';
 import { CustomDirective } from './directives/custom.directive';
 import { ExamplePipeComponent } from './pipes/example-pipe/example-pipe.component';
 import { CustomUppercasePipe } from './pipes/custom-uppercase.pipe';
+import { CustomerModule } from './customer/customer.module';
+import { OrderModule } from './order/order.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CustomUppercasePipe } from './pipes/custom-uppercase.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CustomerModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
