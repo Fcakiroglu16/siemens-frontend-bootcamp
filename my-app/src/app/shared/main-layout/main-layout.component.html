@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container">
+
+    <div class="row mt-3">
+        <div class="col-md-3">
+
+            <div class="list-group">
+                <a routerLinkActive="active" routerLink="/anasayfa" class="list-group-item list-group-item-action"
+                    aria-current="true">
+                    anasayfa
+                </a>
+                <a routerLinkActive="active" routerLink="/hakkimizda"
+                    class="list-group-item list-group-item-action">Hakkımızda</a>
+                <a routerLinkActive="active" routerLink="/galeri"
+                    class="list-group-item list-group-item-action">Galeri</a>
+                <a routerLinkActive="active" routerLink="/iletisim"
+                    class="list-group-item list-group-item-action">İletişim</a>
+
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+
+</div>
+
+
+<app-footer></app-footer>
