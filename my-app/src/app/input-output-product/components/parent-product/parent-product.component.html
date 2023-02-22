@@ -1,0 +1,3 @@
+<p>parent-product works!</p>
+<app-child-product (detailShowClick)="showDetail($event)" [productList]="productList"></app-child-product>
+<app-child-product-detail *ngIf="toggleProductDetail" [selectedProduct]="selectedProduct"></app-child-product-detail>

@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr [ngClass]="{'selected':highlightRow(product.id)}" *ngFor="let product of productList">
+                        <th>{{product.id}}</th>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.stock}}</td>
+                        <td><button (click)="showDetail(product.id)">detay göster</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

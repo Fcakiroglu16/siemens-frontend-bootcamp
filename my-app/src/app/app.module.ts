@@ -3,19 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InlineComponent } from './components/inline-component/inline.component';
+import { ParentComponent } from './input-output/parent/parent.component';
+import { Child1Component } from './input-output/child1/child1.component';
+import { ParentProductComponent } from './input-output-product/components/parent-product/parent-product.component';
+import { ChildProductComponent } from './input-output-product/components/child-product/child-product.component';
+import { ChildProductDetailComponent } from './input-output-product/components/child-product-detail/child-product-detail.component';
 
-import { NormalComponent } from './components/normal/normal.component';
-import { StructuralDirectiveComponent } from './components/structural-directive/structural-directive.component';
-import { ExampleComponent } from './components/example/example.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InlineComponent,
-    NormalComponent,
-    StructuralDirectiveComponent,
-    ExampleComponent
+    ParentComponent,
+    Child1Component,
+    ParentProductComponent,
+    ChildProductComponent,
+    ChildProductDetailComponent,
   ],
   imports: [
     BrowserModule,
