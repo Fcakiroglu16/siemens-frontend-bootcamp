@@ -28,4 +28,10 @@ export class ParentProductComponent {
   showDetail(productId: number) {
     this.selectedProduct = this.productService.getById(productId);
   }
+
+  close()
+  {
+    console.log("parent close()")
+    this.selectedProduct=undefined;
+  }
 }

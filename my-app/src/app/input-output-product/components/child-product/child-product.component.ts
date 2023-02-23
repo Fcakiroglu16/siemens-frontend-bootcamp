@@ -7,11 +7,12 @@ import { Product } from '../../models/product';
   styleUrls: ['./child-product.component.css']
 })
 export class ChildProductComponent {
-  selectedId:number  | undefined;
+  @Input() selectedId:number  | undefined;
   @Input() productList: 
 
   ReadonlyArray<Product> | undefined;
   @Output() detailShowClick = new EventEmitter<number>();
+
 
   showDetail(id: number) {
     this.selectedId=id;
