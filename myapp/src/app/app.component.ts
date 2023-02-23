@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { filter, find, first, from, interval, Observable, of, range, take, takeLast, timer } from 'rxjs';
+import { filter, find, first, from, interval, map, Observable, of, range, take, takeLast, timer } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
+import { FakeserviceService } from './fakeservice.service';
 
 
 interface product {
@@ -17,19 +18,38 @@ interface product {
 export class AppComponent {
   title = 'myapp';
 
-  constructor() {
+  constructor(private fakeService:FakeserviceService) {
+
+
+this.fakeService.getPostsGood().subscribe(x=>{
+ console.log(x);
+})
+
+
+
+
+
+
+
+
+
 
 
     // Filter operator 
     //First operator
 
-    var fromOperator = from([10, 20, 30, 40, 50, 60, 70]);
+    // var fromOperator = from([10, 20, 30, 40, 50, 60, 70]);
 
-    var fromOperatorByProduct = from([
-      { id: 1, name: 'kalem 1', price: 100 },
-      { id: 2, name: 'kalem 2', price: 200 },
-      { id: 3, name: 'kalem 3', price: 300 }
-    ])
+    // var fromOperatorByProduct = from([
+    //   { id: 1, name: 'kalem 1', price: 100 },
+    //   { id: 2, name: 'kalem 2', price: 200 },
+    //   { id: 3, name: 'kalem 3', price: 300 }
+    // ])
+
+   //Map
+  //  fromOperator.pipe(map(x=>x*2)).subscribe(x=>{
+  //   console.log(x);
+  //  })
 
 
     // fromOperator.pipe(first()).subscribe(x => {
@@ -48,9 +68,9 @@ export class AppComponent {
     //   console.log(x)
     // })
     //takeLast
-    fromOperatorByProduct.pipe(takeLast(2)).subscribe(x => {
-      console.log(x)
-    })
+    // fromOperatorByProduct.pipe(takeLast(2)).subscribe(x => {
+    //   console.log(x)
+    // })
 
 
     // Create Observable
