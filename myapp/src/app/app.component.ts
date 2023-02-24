@@ -21,9 +21,25 @@ export class AppComponent {
   constructor(private fakeService:FakeserviceService) {
 
 
-this.fakeService.getPostsGood().subscribe(x=>{
- console.log(x);
-})
+
+     this.fakeService.UpdatePut({id:1, title:'title 1',body:'body 1', userId:2}).subscribe({
+      next:(data)=>console.log(data),
+      error:(err)=> console.log(err.message),
+      complete:()=>console.log("tamamalandı.")
+      
+      })
+
+
+// this.fakeService.SavePostWithError({id:1, title:'title 1',body:'body 1', userId:2}).subscribe({
+// next:(data)=>console.log(data),
+// error:(err)=> console.log(err.message),
+// complete:()=>console.log("tamamalandı.")
+
+// })
+
+// this.fakeService.GetPostsWithHeader().subscribe(x=>{
+//  console.log(x);
+// })
 
 
 

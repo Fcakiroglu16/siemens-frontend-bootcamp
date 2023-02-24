@@ -1,8 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, map, of, switchMap, toArray } from 'rxjs';
+import { catchError, finalize, from, map, of, switchMap, throwError, toArray } from 'rxjs';
 import { Post } from './models/post';
-import { Postshort } from './models/postshort';
+import { Postupdate } from './models/postupdate';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +30,35 @@ export class FakeserviceService {
   }
 
 
+  GetPostsWithHeader()
+  {
+var myheaders= new HttpHeaders().set("authorization","my token");
+return this.httpClient.get<Post[]>(`https://jsonplaceholder.typicode.com/posts`,{headers:myheaders})
+
+  }
+
+  SavePost(newPost:Post)
+  {
+
+    return this.httpClient.post<any>('https://jsonplaceholder.typicode.com/posts',newPost)
+  }
+
+  SavePostWithError(newPost:Post)
+  {
+
+    return this.httpClient.post<any>('https://jsonplaceholder.typicode.com/pos',newPost).pipe(catchError(err=>{
+
+  //console.log(err);
+  return  throwError(()=>new Error('bir hata meydana geldi'));
+    }),finalize(()=>console.log("final methodu çalıştı")))
+  }
+
+
+
+UpdatePut(updatePost:Postupdate)
+{
+
+  return this.httpClient.put<any>(`https://jsonplaceholder.typicode.com/posts/${updatePost.id}`,{});
 }
+}
+
