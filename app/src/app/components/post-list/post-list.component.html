@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                
+                    <th scope="col">UserId</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Body</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let post of postList">
+                    <th scope="row">{{post.id}}</th>
+                    <td>{{post.userId}}</td>
+                    <td>{{post.title}}</td>
+                    <td>@{{post.body}}</td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            
+        </div>
+    </div>
+</div>
+
