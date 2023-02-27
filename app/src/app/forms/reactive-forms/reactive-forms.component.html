@@ -70,6 +70,20 @@
           </div>
         </div>
 
+        <div *ngFor="let publish of publishMenulist">
+          <div class="form-check">
+            <input
+              formControlName="publish"
+              class="form-check-input"
+              type="radio"
+              value="{{ publish.id }}"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              {{ publish.text }}
+            </label>
+          </div>
+        </div>
+
         <button type="submit" class="btn btn-primary">Kaydet</button>
       </form>
     </div>

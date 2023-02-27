@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Product } from '../../models/product';
 import { CategoryMenu } from '../../models/category-menu';
+import { PublishMenu } from '../../models/publish-menu';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -17,13 +18,20 @@ export class ReactiveFormsComponent {
       [Validators.required, Validators.min(100), Validators.max(1000)],
     ],
     stock: ['', [Validators.required, Validators.min(10), Validators.max(50)]],
-    category: ["", Validators.required],
+    category: ['', Validators.required],
+    publish: ["2"],
   });
 
   categoryMenuList: CategoryMenu[] = [
     { id: 1, text: 'kalemler' },
     { id: 2, text: 'Defterler' },
     { id: 3, text: 'Silgiler' },
+  ];
+
+  publishMenulist: PublishMenu[] = [
+    { id: 1, text: '3 ay' },
+    { id: 2, text: '6 ay' },
+    { id: 3, text: '9 ay' },
   ];
 
   constructor(private formBuilder: FormBuilder) {}
