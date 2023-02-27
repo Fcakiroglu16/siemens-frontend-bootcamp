@@ -17,13 +17,13 @@ export class ReactiveFormsComponent {
       [Validators.required, Validators.min(100), Validators.max(1000)],
     ],
     stock: ['', [Validators.required, Validators.min(10), Validators.max(50)]],
-    category: ['', Validators.required],
+    category: ["", Validators.required],
   });
 
   categoryMenuList: CategoryMenu[] = [
     { id: 1, text: 'kalemler' },
     { id: 2, text: 'Defterler' },
-    { id: 3, text: 'Silgiler' }
+    { id: 3, text: 'Silgiler' },
   ];
 
   constructor(private formBuilder: FormBuilder) {}
