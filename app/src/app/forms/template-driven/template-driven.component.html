@@ -1,0 +1,94 @@
+<p>template-driven works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form #productForm="ngForm" (ngSubmit)="saveProduct(productForm)">
+        <div>
+          <h3>Form Properties</h3>
+          <ul>
+            <li>Valid :{{ productForm.valid }}</li>
+            <li>Invalid :{{ productForm.invalid }}</li>
+            <li>Errors :{{ productForm.errors | json }}</li>
+            <li>touched :{{ productForm.touched }}</li>
+            <li>untouched :{{ productForm.untouched }}</li>
+            <li>dirty :{{ productForm.dirty }}</li>
+            <li>pristine :{{ productForm.pristine }}</li>
+          </ul>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">İsim :</label>
+          <input
+            #txtName="ngModel"
+            name="name"
+            [ngModel]="newProduct?.name"
+            type="text"
+            class="form-control"
+            required
+            maxlength="10"
+            minlength="5"
+          />
+          <div>
+            <h3>Product Name Properties</h3>
+            <ul>
+              <li>Value :{{ txtName.value | json }}</li>
+              <li>Valid :{{ txtName.valid }}</li>
+              <li>Invalid :{{ txtName.invalid }}</li>
+              <li>Errors :{{ txtName.errors | json }}</li>
+              <li>touched :{{ txtName.touched }}</li>
+              <li>untouched :{{ txtName.untouched }}</li>
+              <li>dirty :{{ txtName.dirty }}</li>
+              <li>pristine :{{ txtName.pristine }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Fiyat :</label>
+          <input
+            name="price"
+            [ngModel]="newProduct?.price"
+            type="number"
+            class="form-control"
+            #txtPrice="ngModel"
+            required
+            min="100"
+            max="1000"
+          />
+          <div>
+            <h3>Product Price Properties</h3>
+            <ul>
+              <li>Value :{{ txtPrice.value | json }}</li>
+              <li>Valid :{{ txtPrice.valid }}</li>
+              <li>Invalid :{{ txtPrice.invalid }}</li>
+              <li>Errors :{{ txtPrice.errors | json }}</li>
+              <li>touched :{{ txtPrice.touched }}</li>
+              <li>untouched :{{ txtPrice.untouched }}</li>
+              <li>dirty :{{ txtPrice.dirty }}</li>
+              <li>pristine :{{ txtPrice.pristine }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Stok :</label>
+          <input
+            [ngModel]="newProduct?.stock"
+            type="text"
+            class="form-control"
+            name="stock"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Category :</label>
+          <input
+            [ngModel]="newProduct?.category"
+            type="text"
+            name="category"
+            class="form-control"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+      </form>
+    </div>
+  </div>
+</div>
