@@ -1,4 +1,12 @@
-.ng-dirty[type=text]
+.ng-dirty[type=text],.ng-dirty[type=number]
 {
-    background-color:aquamarine;
+    background-color:wheat;
+}
+.invalid
+{
+    border:2px solid red;
+}
+.valid
+{
+    border:2px solid green;
 }
