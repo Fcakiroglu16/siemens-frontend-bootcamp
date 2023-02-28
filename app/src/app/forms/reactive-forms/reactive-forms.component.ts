@@ -5,6 +5,8 @@ import { CategoryMenu } from '../../models/category-menu';
 import { PublishMenu } from '../../models/publish-menu';
 import { barcodeValidator } from '../../validations/barcode-validator';
 import { PublishStartEndDataValidator } from '../../validations/publish-start-end-date-validator';
+import { PostService } from './post.service';
+import { ExistProductNameValidator } from '../../validations/exist-product-name-validator';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -15,7 +17,13 @@ export class ReactiveFormsComponent {
   newProduct: Product | undefined = undefined;
   public productForm = this.formBuilder.group(
     {
-      name: ['', [Validators.required, Validators.minLength(5)]],
+      name: [
+        '',
+        {
+          Validators: [Validators.required, Validators.minLength(5)],
+          asyncValidators: [ExistProductNameValidator(this.postService)],
+        },
+      ],
       price: [
         '',
         [Validators.required, Validators.min(100), Validators.max(1000)],
@@ -46,9 +54,21 @@ export class ReactiveFormsComponent {
     { id: 3, text: '9 ay' },
   ];
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private postService: PostService
+  ) {
+    this.postService.searchByProductName('sunt').subscribe((x) => {
+      console.log(x.length);
+    });
+  }
 
   save() {
+    if (this.productForm.invalid) {
+      alert('Lütfen tüm alanları doldurunuz');
+      return;
+    }
+
     this.newProduct = this.productForm.value as Product;
     console.log(this.newProduct);
   }

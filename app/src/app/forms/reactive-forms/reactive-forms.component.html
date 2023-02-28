@@ -34,13 +34,8 @@
               <div *ngIf="isInvalidControl('publishStartDate', 'required')">
                 ürün başlangıç tarihi alanı gereklidir.
               </div>
-              
             </div>
           </div>
-
-
-
-
 
           <label class="form-label">Yayınlanma aralığı(Bitiş) :</label>
           <input
@@ -53,10 +48,8 @@
               <div *ngIf="isInvalidControl('publishEndDate', 'required')">
                 ürün bitiş tarihi alanı gereklidir.
               </div>
-              
             </div>
           </div>
-
 
           <div class="form-text text-danger">
             <div
@@ -89,7 +82,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf="false">
+          <div *ngIf="true">
             <h3>Product Name Properties</h3>
             <ul>
               <li>Value :{{ productForm.get("name")?.value | json }}</li>
