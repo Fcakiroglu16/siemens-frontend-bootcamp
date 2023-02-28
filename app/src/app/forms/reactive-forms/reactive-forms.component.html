@@ -23,6 +23,31 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label">Yayınlanma aralığı(Başlangıç) :</label>
+          <input
+            formControlName="publishStartDate"
+            type="datetime-local"
+            class="form-control"
+          />
+          <label class="form-label">Yayınlanma aralığı(Bitiş) :</label>
+          <input
+            formControlName="publishEndDate"
+            type="datetime-local"
+            class="form-control"
+          />
+          <div class="form-text text-danger">
+            <div
+              *ngIf="
+                productForm.errors?.['dataRange'] &&
+                (productForm.touched || productForm.dirty)
+              "
+            >
+              Başlangıç ve bitiş tarihleri uyumlu değildir.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
           <label class="form-label">İsim :</label>
           <input formControlName="name" type="text" class="form-control" />
           <div class="form-text text-danger">

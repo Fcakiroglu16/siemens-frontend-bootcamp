@@ -4,6 +4,7 @@ import { Product } from '../../models/product';
 import { CategoryMenu } from '../../models/category-menu';
 import { PublishMenu } from '../../models/publish-menu';
 import { barcodeValidator } from '../../validations/barcode-validator';
+import { PublishStartEndDataValidator } from '../../validations/publish-start-end-date-validator';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -12,18 +13,26 @@ import { barcodeValidator } from '../../validations/barcode-validator';
 })
 export class ReactiveFormsComponent {
   newProduct: Product | undefined = undefined;
-  public productForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(5)]],
-    price: [
-      '',
-      [Validators.required, Validators.min(100), Validators.max(1000)],
-    ],
-    stock: ['', [Validators.required, Validators.min(10), Validators.max(50)]],
-    category: ['', Validators.required],
-    publish: ['2'],
-    isPublish: [false],
-    barcode: ['', [Validators.required, barcodeValidator()]],
-  });
+  public productForm = this.formBuilder.group(
+    {
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      price: [
+        '',
+        [Validators.required, Validators.min(100), Validators.max(1000)],
+      ],
+      stock: [
+        '',
+        [Validators.required, Validators.min(10), Validators.max(50)],
+      ],
+      category: ['', Validators.required],
+      publish: ['2'],
+      isPublish: [false],
+      barcode: ['', [Validators.required, barcodeValidator()]],
+      publishStartDate: [new Date()],
+      publishEndDate: [new Date()],
+    },
+    { validators: PublishStartEndDataValidator() }
+  );
 
   categoryMenuList: CategoryMenu[] = [
     { id: 1, text: 'kalemler' },
