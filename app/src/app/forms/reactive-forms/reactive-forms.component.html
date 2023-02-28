@@ -4,7 +4,7 @@
     <div class="col-md-6 offset-md-3">
       <form [formGroup]="productForm" (ngSubmit)="save()">
         <div>
-          <h3>Form Properties</h3>
+          <h3>Ürün kayıt</h3>
         </div>
 
         <div class="mb-3">
@@ -43,14 +43,49 @@
 
         <div class="mb-3">
           <label class="form-label">Fiyat :</label>
-          <input formControlName="price" type="text" class="form-control" />
+          <input formControlName="price" type="number" class="form-control" />
+
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('price')">
+              <div *ngIf="isInvalidControl('price', 'required')">
+                ürün fiyat alanı gereklidir.
+              </div>
+
+              <div
+                *ngIf="
+                  isInvalidControl('price', 'min') ||
+                  isInvalidControl('price', 'max')
+                "
+              >
+                ürün fıyatı 100 ile 1000 arasında olmalıdır.
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Stock :</label>
-          <input formControlName="stock" type="text" class="form-control" />
+          <input formControlName="stock" type="number" class="form-control" />
+
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('stock')">
+              <div *ngIf="isInvalidControl('stock', 'required')">
+                ürün stok alanı gereklidir.
+              </div>
+
+              <div
+                *ngIf="
+                  isInvalidControl('stock', 'min') ||
+                  isInvalidControl('stock', 'max')
+                "
+              >
+                ürün stok değeri 10 ile 50 arasında olmalıdır.
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
+        <div class="mb-3">
+          <label class="form-label">Kategori :</label>
           <select formControlName="category" class="form-select">
             <option value="">Seçiniz</option>
             <option
@@ -70,17 +105,20 @@
           </div>
         </div>
 
-        <div *ngFor="let publish of publishMenulist">
-          <div class="form-check">
-            <input
-              formControlName="publish"
-              class="form-check-input"
-              type="radio"
-              value="{{ publish.id }}"
-            />
-            <label class="form-check-label" for="flexRadioDefault1">
-              {{ publish.text }}
-            </label>
+        <div class="mb-3">
+          <label class="form-label">Yayın süresi :</label>
+          <div *ngFor="let publish of publishMenulist">
+            <div class="form-check">
+              <input
+                formControlName="publish"
+                class="form-check-input"
+                type="radio"
+                value="{{ publish.id }}"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {{ publish.text }}
+              </label>
+            </div>
           </div>
         </div>
 

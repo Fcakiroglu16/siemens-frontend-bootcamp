@@ -49,7 +49,8 @@ export class ReactiveFormsComponent {
     if (control.errors?.['required']) return true;
     if (control.errors?.['minlength']) return true;
     if (control.errors?.['maxlength']) return true;
-
+    if (control.errors?.['max']) return true;
+    if (control.errors?.['min']) return true;
     return false;
   }
 
