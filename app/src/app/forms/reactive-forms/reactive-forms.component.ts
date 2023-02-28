@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Product } from '../../models/product';
 import { CategoryMenu } from '../../models/category-menu';
 import { PublishMenu } from '../../models/publish-menu';
+import { barcodeValidator } from '../../validations/barcode-validator';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -19,7 +20,9 @@ export class ReactiveFormsComponent {
     ],
     stock: ['', [Validators.required, Validators.min(10), Validators.max(50)]],
     category: ['', Validators.required],
-    publish: ["2"],
+    publish: ['2'],
+    isPublish: [false],
+    barcode: ['', [Validators.required, barcodeValidator()]],
   });
 
   categoryMenuList: CategoryMenu[] = [
@@ -51,6 +54,8 @@ export class ReactiveFormsComponent {
     if (control.errors?.['maxlength']) return true;
     if (control.errors?.['max']) return true;
     if (control.errors?.['min']) return true;
+    if (control.errors?.['barcodeFormat']) return true;
+
     return false;
   }
 

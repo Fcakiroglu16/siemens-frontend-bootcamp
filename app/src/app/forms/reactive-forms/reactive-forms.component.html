@@ -8,6 +8,21 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label">Barcode :</label>
+          <input formControlName="barcode" type="text" class="form-control" />
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('barcode')">
+              <div *ngIf="isInvalidControl('barcode', 'required')">
+                ürün barcode alanı gereklidir.
+              </div>
+              <div *ngIf="isInvalidControl('barcode', 'barcodeFormat')">
+                ürün barcode doğru formatta değil.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
           <label class="form-label">İsim :</label>
           <input formControlName="name" type="text" class="form-control" />
           <div class="form-text text-danger">
@@ -122,6 +137,16 @@
           </div>
         </div>
 
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="isPublish"
+          />
+          <label class="form-check-label" for="exampleCheck1"
+            >Yayınlansın mı?</label
+          >
+        </div>
         <button type="submit" class="btn btn-primary">Kaydet</button>
       </form>
     </div>
