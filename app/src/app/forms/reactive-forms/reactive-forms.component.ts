@@ -28,8 +28,8 @@ export class ReactiveFormsComponent {
       publish: ['2'],
       isPublish: [false],
       barcode: ['', [Validators.required, barcodeValidator()]],
-      publishStartDate: [new Date()],
-      publishEndDate: [new Date()],
+      publishStartDate: [new Date(), [Validators.required]],
+      publishEndDate: [new Date(), [Validators.required]],
     },
     { validators: PublishStartEndDataValidator() }
   );

@@ -29,12 +29,35 @@
             type="datetime-local"
             class="form-control"
           />
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('publishStartDate')">
+              <div *ngIf="isInvalidControl('publishStartDate', 'required')">
+                ürün başlangıç tarihi alanı gereklidir.
+              </div>
+              
+            </div>
+          </div>
+
+
+
+
+
           <label class="form-label">Yayınlanma aralığı(Bitiş) :</label>
           <input
             formControlName="publishEndDate"
             type="datetime-local"
             class="form-control"
           />
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('publishEndDate')">
+              <div *ngIf="isInvalidControl('publishEndDate', 'required')">
+                ürün bitiş tarihi alanı gereklidir.
+              </div>
+              
+            </div>
+          </div>
+
+
           <div class="form-text text-danger">
             <div
               *ngIf="
