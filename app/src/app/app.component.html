@@ -1,8 +1,52 @@
-<button (click)="change()">Title değiştir</button>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            aria-current="page"
+            routerLink="/"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/post-list" routerLinkActive="active"
+            >Post List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/post-update"
+            routerLinkActive="active"
+            >Post Update</a
+          >
+        </li>
 
-<app-show-productname [productName]="title">
-    <h2>data 1</h2>
-    <h2>data 2</h2>
-</app-show-productname>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/post-create" post="active"
+            >Post create</a
+          >
+        </li>
+
+       
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
