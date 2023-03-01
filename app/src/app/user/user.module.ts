@@ -6,5 +6,6 @@ import { UserCreateComponent } from './user-create/user-create.component';
 @NgModule({
   declarations: [UserListComponent, UserCreateComponent],
   imports: [CommonModule],
+  exports: [UserListComponent],
 })
 export class UserModule {}

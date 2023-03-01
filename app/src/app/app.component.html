@@ -6,4 +6,10 @@
   <li><a routerLink="/post/post-create">post create</a></li>
 </ul>
 
+<app-ng-container-and-template></app-ng-container-and-template>
+
+
+<button (click)="changeHeader()">header değiştir</button>
+<app-user-list #c_userlist></app-user-list>
+<h1 #header>Merhaba Dünya</h1>
 <router-outlet></router-outlet>

@@ -1,0 +1,30 @@
+<p>ng-container-and-template works!</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>Picture</td>
+      <th>id</th>
+      <th>userId</th>
+      <th>title</th>
+      <th>body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of posts"></tr>
+  </tbody>
+</table>
+
+<ng-template #postrow let-post>
+  <td>
+    <img
+      src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/16:9/w_2123,h_1194,c_limit/phonepicutres-TA.jpg"
+      style="width: 100px; height: 100px"
+      alt=""
+    />
+  </td>
+  <td>{{ post.id }}</td>
+  <td>{{ post.userId }}</td>
+  <td>{{ post.title }}</td>
+  <td>{{ post.body }}</td>
+</ng-template>
