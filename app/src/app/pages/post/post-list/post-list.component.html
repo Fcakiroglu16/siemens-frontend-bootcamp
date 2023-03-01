@@ -1,2 +1,31 @@
 <p>post-list works!</p>
 <button (click)="goToPostCreate()">product create sayfasına git</button>
+
+<button (click)="goToPostDetail(2)">product detay sayfasına git(id=2)</button>
+
+<a  routerLink="/post-update" [queryParams]="{id:5}">id=10 querystring data taşıma</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>UserId</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of postList">
+      <td>{{ p.id }}</td>
+      <td>{{ p.userId }}</td>
+      <td>{{ p.title }}</td>
+      <td>{{ p.body }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/post-detail', p.id]"
+          >detay göster</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
