@@ -1,4 +1,10 @@
-<p>ng-container-and-template works!</p>
+<ng-template #header let-data>
+  <h3>{{ data.name }}</h3>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="header; context: { $implicit: { name: 'ahmet' } }"></ng-container>
+
+<ng-container *ngTemplateOutlet="header; context: { $implicit: { name: 'mehmet' } }"></ng-container>
 
 <table class="table">
   <thead>
@@ -11,20 +17,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of posts"></tr>
+    <tr *ngFor="let p of posts">
+      <ng-container *ngTemplateOutlet="postrow; context: { productData: { post: p } }"></ng-container>
+    </tr>
   </tbody>
 </table>
 
-<ng-template #postrow let-post>
+<ng-template #postrow let-data="productData">
   <td>
-    <img
-      src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/16:9/w_2123,h_1194,c_limit/phonepicutres-TA.jpg"
-      style="width: 100px; height: 100px"
-      alt=""
-    />
+    <img src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/16:9/w_2123,h_1194,c_limit/phonepicutres-TA.jpg"
+      style="width: 100px; height: 100px" alt="" />
   </td>
-  <td>{{ post.id }}</td>
-  <td>{{ post.userId }}</td>
-  <td>{{ post.title }}</td>
-  <td>{{ post.body }}</td>
+  <td>{{ data.post.id }}</td>
+  <td>{{ data.post.userId }}</td>
+  <td>{{ data.post.title }}</td>
+  <td>{{ data.post.body }}</td>
 </ng-template>
