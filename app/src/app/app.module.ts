@@ -3,23 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PublisherComponent } from './subject/publisher/publisher.component';
-import { Subscriber1Component } from './subject/subscriber1/subscriber1.component';
-import { Subscriber2Component } from './subject/subscriber2/subscriber2.component';
-import { PagesModule } from './pages/pages.module';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { ProductCreateComponent } from './pages/product-create/product-create.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PublisherComponent,
-    Subscriber1Component,
-    Subscriber2Component
+    ProductListComponent,
+    ProductCreateComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule
+  
 
   ],
   providers: [],
