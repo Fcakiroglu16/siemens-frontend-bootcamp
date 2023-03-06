@@ -6,10 +6,15 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
+export class AppComponent {
 
+  name: string = 'ahmet';
+  surname: string = 'yıldız';
   title = 'app';
 
-
+  change() {
+    this.name = "mehmet";
+    this.surname = "çavdarlı";
+  }
 
 }
