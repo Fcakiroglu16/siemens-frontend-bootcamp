@@ -2,5 +2,7 @@
 <ul>
     <li *ngFor="let product of productList">
         {{product.id}} {{product.name}} {{product.price}}
+
+        <input type="checkbox" (click)="isOk(product.id)">
     </li>
 </ul>

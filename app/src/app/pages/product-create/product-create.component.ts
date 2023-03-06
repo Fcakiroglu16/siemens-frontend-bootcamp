@@ -15,6 +15,6 @@ export class ProductCreateComponent {
 
   add(): void {
     this.productId++;
-    this.productState.productList.push({ id: this.productId, name: "kalem 1", price: 200 })
+    this.productState.productList.push({ id: this.productId, name: "kalem 1", price: 200, isOk:false })
   }
 }

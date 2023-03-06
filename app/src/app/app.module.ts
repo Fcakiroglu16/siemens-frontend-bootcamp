@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProductCreateComponent } from './pages/product-create/product-create.component';
+import { ProductUpdateComponent } from './pages/product-update/product-update.component';
+import { ProductDeleteComponent } from './pages/product-delete/product-delete.component';
+import { ProductListWithOkComponent } from './pages/product-list-with-ok/product-list-with-ok.component';
 
 
 
@@ -13,6 +16,9 @@ import { ProductCreateComponent } from './pages/product-create/product-create.co
     AppComponent,
     ProductListComponent,
     ProductCreateComponent,
+    ProductUpdateComponent,
+    ProductDeleteComponent,
+    ProductListWithOkComponent,
 
   ],
   imports: [

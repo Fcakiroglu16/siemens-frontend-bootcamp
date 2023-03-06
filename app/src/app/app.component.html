@@ -1,4 +1,13 @@
 
 <app-product-create></app-product-create>
-<app-product-list></app-product-list>
+<app-product-update></app-product-update>
+<app-product-delete></app-product-delete>
+<app-product-list (isOkClickEvent)="loadToListWithOkComponent()"></app-product-list>
+<hr>
+<app-product-list-with-ok></app-product-list-with-ok>
+
+
+
+
+
 <router-outlet></router-outlet>
