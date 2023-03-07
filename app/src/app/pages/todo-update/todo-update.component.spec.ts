@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextboxComponent } from './textbox.component';
+import { TodoUpdateComponent } from './todo-update.component';
 
-describe('TextboxComponent', () => {
-  let component: TextboxComponent;
-  let fixture: ComponentFixture<TextboxComponent>;
+describe('TodoUpdateComponent', () => {
+  let component: TodoUpdateComponent;
+  let fixture: ComponentFixture<TodoUpdateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextboxComponent ]
+      declarations: [ TodoUpdateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TextboxComponent);
+    fixture = TestBed.createComponent(TodoUpdateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
