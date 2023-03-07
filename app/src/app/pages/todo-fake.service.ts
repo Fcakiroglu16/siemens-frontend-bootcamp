@@ -7,7 +7,10 @@ import { TodoUpdate } from './models/todo-update';
 })
 export class TodoFakeService {
 
-  todoList: Todo[] = [];
+  todoList: Todo[] = [
+    { id: 1, content: "yapılacaklar 1", isCompleted: false, created: new Date() },
+    { id: 2, content: "yapılacaklar 2", isCompleted: false, created: new Date() }
+  ];
   constructor() { }
 
 

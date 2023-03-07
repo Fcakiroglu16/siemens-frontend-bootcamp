@@ -1,1 +1,35 @@
-<p>todo-list works!</p>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-8 offset-md-2">
+            <h2>Todos</h2>
+            <a routerLink="/todo-save" class="btn btn-primary">save todo</a>
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Completed</th>
+                        <th>Id</th>
+                        <th>Content</th>
+                        <th>Created</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let todo of todoList">
+                        <td><input type="checkbox" [checked]="todo.isCompleted" (change)="isCompleted(todo.id)"></td>
+                        <td>{{todo.id}}</td>
+                        <td>{{todo.content}}</td>
+                        <td>{{todo.created | date:'dd-MM-YYYY'}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

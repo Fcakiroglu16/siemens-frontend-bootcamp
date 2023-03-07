@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { TodoSaveComponent } from './pages/todo-save/todo-save.component';
 import { TodoUpdateComponent } from './pages/todo-update/todo-update.component';
+import { TodoService } from './pages/todo.service';
+import { TodoFakeService } from './pages/todo-fake.service';
 
 
 
@@ -28,7 +30,7 @@ import { TodoUpdateComponent } from './pages/todo-update/todo-update.component';
 
 
   ],
-  providers: [],
+  providers: [{ provide: TodoService, useClass: TodoFakeService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
