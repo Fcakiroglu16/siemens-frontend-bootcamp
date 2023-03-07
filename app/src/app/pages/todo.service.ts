@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { find, from, Observable, of, toArray } from 'rxjs';
 import { Todo } from './models/todo';
+import { TodoSave } from './models/todo-save';
 import { TodoUpdate } from './models/todo-update';
 
 @Injectable({
@@ -36,6 +37,17 @@ export class TodoService {
 
     return of(true);
   }
+
+
+  save(newTodo: TodoSave): Observable<boolean> {
+    const newId = Math.floor(Math.random() * 100);
+
+
+    this.todoList.push({ id: newId, content: newTodo.content, isCompleted: false, created: new Date() })
+
+    return of(true);
+  }
+
 
   update(todo: TodoUpdate): Observable<boolean> {
 

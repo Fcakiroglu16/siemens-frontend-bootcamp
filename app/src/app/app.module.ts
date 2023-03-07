@@ -8,6 +8,7 @@ import { TodoSaveComponent } from './pages/todo-save/todo-save.component';
 import { TodoUpdateComponent } from './pages/todo-update/todo-update.component';
 import { TodoService } from './pages/todo.service';
 import { TodoFakeService } from './pages/todo-fake.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +28,9 @@ import { TodoFakeService } from './pages/todo-fake.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule
+
+
 
 
   ],
