@@ -17,7 +17,7 @@ const routes: Routes = [
     path: 'todo-save', component: TodoSaveComponent
   },
   {
-    path: 'todo-update', component: TodoUpdateComponent
+    path: 'todo-update/:id', component: TodoUpdateComponent
   }
 
 

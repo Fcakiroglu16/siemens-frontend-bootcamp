@@ -25,7 +25,11 @@
                         <td>{{todo.id}}</td>
                         <td>{{todo.content}}</td>
                         <td>{{todo.created | date:'dd-MM-YYYY'}}</td>
-                        <td></td>
+                        <td>
+                            <a class="btn btn-danger" (click)="delete(todo.id)">delete</a>
+
+                            <a class="btn btn-success mx-2" [routerLink]="['/todo-update',todo.id]">update</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
