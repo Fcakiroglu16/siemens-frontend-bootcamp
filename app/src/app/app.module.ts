@@ -9,6 +9,7 @@ import { TodoUpdateComponent } from './pages/todo-update/todo-update.component';
 import { TodoService } from './pages/todo.service';
 import { TodoFakeService } from './pages/todo-fake.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import{HttpClientModule} from '@angular/common/http'
 
 
 
@@ -28,13 +29,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
 
 
 
   ],
-  providers: [{ provide: TodoService, useClass: TodoFakeService }],
+  providers: [{ provide: TodoService, useClass: TodoService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../models/todo';
 import { TodoService } from '../todo.service';
-
+import sweetAlert from 'sweetalert2';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -23,21 +23,60 @@ export class TodoListComponent implements OnInit {
 
   delete(id: number) {
 
-    this.todoService.delete(id).subscribe(x => {
-      if (x) {
+    sweetAlert.fire({
+      title: 'Are you sure',
+      text: "you won't be able to revert this action",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: "yes, delete it"
 
-        this.load();
+
+
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.todoService.delete(id).subscribe(x => {
+          if (x) {
+            this.load();
+          }
+          else {
+            alert("bir hata meydana geldi");
+          }
+        })
 
       }
-      else {
-        alert("bir hata meydana geldi");
-      }
+
+
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
   isCompleted(id: number) {
     this.todoService.isCompleted(id).subscribe(x => {
 
+
+      console.log(x);
 
       if (x == true) {
         this.load();

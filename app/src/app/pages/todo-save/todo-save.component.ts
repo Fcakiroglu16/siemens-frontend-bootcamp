@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TodoService } from '../todo.service';
-
+import alert from 'sweetalert2'
 @Component({
   selector: 'app-todo-save',
   templateUrl: './todo-save.component.html',
@@ -24,10 +24,20 @@ export class TodoSaveComponent {
   save() {
 
 
-    this.todoService.save(this.myForm.value).subscribe(x => {
+    this.todoService.save(this.myForm.value).subscribe(isSuccess => {
 
 
-      if (x) {
+      if (isSuccess) {
+
+        alert.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your todo saved',
+          showConfirmButton: false,
+          timer: 1500
+
+        })
+
         this.router.navigateByUrl("todo-list");
       }
 
